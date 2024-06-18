@@ -9,26 +9,18 @@
  * };
  */
 class Solution {
+    
 public:
     ListNode* reverseList(ListNode* head) {
-        if (head == NULL) {
-            return NULL;
+        if(head == NULL || head->next == NULL){
+            return head;
         }
+        
+        ListNode* node = reverseList(head->next);
 
-        ListNode* curr = head;
-        ListNode* far = curr->next;
-        ListNode* prev = NULL;
-
-        while(far != NULL){
-            curr->next = prev;
-            prev = curr;
-            curr = far;
-            far = far->next;
-        }
-
-        // Handle the last node
-        curr->next = prev;
-
-        return curr;
+        ListNode* front = head->next;
+        front->next = head;
+        head->next = NULL;
+        return node;
     }
 };
