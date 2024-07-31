@@ -11,7 +11,7 @@ void solve() {
     for(int i = 0; i < n; i++) {
         cin >> a[i];
         if(abs(a[i]) < mini) {
-            mini = a[i];
+            mini = abs(a[i]);
         }
     }
 
